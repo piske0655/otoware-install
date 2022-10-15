@@ -10,9 +10,9 @@ music/ 内に入れた音楽ファイルの音量を1,000倍にします
 まず、music/ 内に音楽ファイルを入れます
 　このとき、ファイル名はinput.{拡張子}にしておきます
 
-後はotoware.shを実行して拡張子を入力するだけです
+後はotoware.shを実行するだけです
 ```bash
-~/otoware/otoware.sh
+~/otoware/otoware.sh {拡張子}
 ```
 これでよいです
 
