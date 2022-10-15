@@ -1,5 +1,5 @@
 #/bin/bash
-cd `dirname $0`
+cd ~/
 if [ -e ~/otoware/ ]; then
     echo "再インストールしますか？[y/n]"
     read n
@@ -33,8 +33,8 @@ if [ -e ~/otoware/ ]; then
                 exit 0
             fi
         fi
-        echo "ファイルのコピーをしています..."
-        cp -r otoware/ ~/
+        echo "ファイルのコピーを開始します..."
+        git clone https://github.com/piske0655/otoware
         if [ $? = 0 ]; then
             echo "コピーが完了しました"
         else
@@ -44,6 +44,15 @@ if [ -e ~/otoware/ ]; then
         fi
         echo ".gitkeepを削除しています..."
         rm -rf ~/otoware/music/.gitkeep
+        if [ $? = 0 ]; then
+            echo "削除が完了しました"
+        else
+            echo "削除に失敗しました"
+            echo "インストールを中断します"
+            exit 0
+        fi
+        echo ".gitを削除しています..."
+        rm -rf ~/otoware/.git/
         if [ $? = 0 ]; then
             echo "削除が完了しました"
         else
@@ -61,7 +70,6 @@ else
     echo "インストールしますか？[y/n]"
     read n
     if [ $n = "y" ]; then
-        echo "インストールをしています..."
         if [ ! -e /bin/ffmpeg ]; then
             echo "パッケージリストのアップデートを開始します"
             sudo apt -y update
@@ -82,8 +90,8 @@ else
                 exit 0
             fi
         fi
-        echo "ファイルのコピーをしています..."
-        cp -r otoware/ ~/
+        echo "ファイルのコピーを開始します..."
+        git clone https://github.com/piske0655/otoware
         if [ $? = 0 ]; then
             echo "コピーが完了しました"
         else
@@ -93,6 +101,15 @@ else
         fi
         echo ".gitkeepを削除しています..."
         rm -rf ~/otoware/music/.gitkeep
+        if [ $? = 0 ]; then
+            echo "削除が完了しました"
+        else
+            echo "削除に失敗しました"
+            echo "インストールを中断します"
+            exit 0
+        fi
+        echo ".gitを削除しています..."
+        rm -rf ~/otoware/.git/
         if [ $? = 0 ]; then
             echo "削除が完了しました"
         else
